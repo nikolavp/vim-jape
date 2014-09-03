@@ -62,13 +62,17 @@ For now there is no package but the following methods work as expected
 Pathogen
 ==========
 
+If you are using [pathogen](https://github.com/tpope/vim-pathogen)
+
+```shell
 cd ~/.vim/bundle
 git clone git://github.com/nikolavp/vim-jape.git
+```
 
 Neobundle
 ==========
 
-Just add the following to your vimrc file
+If you are using [Neobundle](https://github.com/Shougo/neobundle.vim) then add the following to your vimrc file
 
 ```vim
 NeoBundle 'nikolavp/vim-jape', {
@@ -79,3 +83,11 @@ NeoBundle 'nikolavp/vim-jape', {
 ```
 
 you will have to restart so neobundle asks to you install the plugin
+
+Vundle
+==========
+If you are using [Vundle](https://github.com/gmarik/Vundle.vim) then add the following to your vimrc file
+
+```vim
+Plugin 'nikolavp/vim-jape'
+```
