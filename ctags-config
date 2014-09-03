@@ -1,0 +1,6 @@
+--langdef=jape
+--langmap=jape:.jape
+--regex-jape=/^[ \t]*Rule:[ \t]*([a-zA-Z0-9_]+)/\1/r,rule/
+--regex-jape=/^[ \t]*Macro:[ \t]*([a-zA-Z0-9_]+)/\1/m,macro/
+--regex-jape=/:[^\.]+\.([a-zA-Z0-9_]+)[ \t]*=/\1/a,annotation/
+--regex-jape=/outputAS.add\([^,]*,[^,]*,[^"]"+([a-zA-Z0-9_]+)"/\1/a, annotation/
