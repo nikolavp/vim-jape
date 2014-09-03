@@ -49,7 +49,7 @@ Sometimes there are many definitions for a single annotation, in those cases ^] 
 ```vim
 :ts Location
 ```
-will show you every place that the Token annotation is defined and will ask you where to jump
+will show you every place that the *Location* annotation is defined and will ask you where to jump
 
 Tagbar support
 ========
