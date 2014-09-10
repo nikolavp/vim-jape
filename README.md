@@ -11,7 +11,9 @@ Jape tool support for vim. This includes the following for now:
 
 Syntax highlighting
 ========
-Macros, rules, java code - everything should be highlighted properly
+Macros, rules, java code - everything should be highlighted properly. Look at this gorgeous screenshot
+
+![Syntax highlighting](https://github.com/nikolavp/vim-jape/blob/master/images/syntax.png "Syntax highlighting")
 
 Indentation
 ========
@@ -53,11 +55,22 @@ will show you every place that the *Location* annotation is defined and will ask
 
 Tagbar support
 ========
-If you are using tagbar and have included the tags file, you will see the tree properly.
+If you are using tagbar and have included the tags file, you will see the tree properly.  Look at this gorgeous screenshot
+![Tagbar screenshot](https://github.com/nikolavp/vim-jape/blob/master/images/tagbar.png "Tagbar screenshot")
 
 Installation
 ===
 For now there is no package but the following methods work as expected
+
+Vimballs
+==========
+
+Download the vmb from [our release page](https://github.com/nikolavp/vim-jape/releases) and run the following
+
+```shell
+vim -S vim-jape-1.0.vmb
+```
+
 
 Pathogen
 ==========
@@ -91,3 +104,26 @@ If you are using [Vundle](https://github.com/gmarik/Vundle.vim) then add the fol
 ```vim
 Plugin 'nikolavp/vim-jape'
 ```
+
+Development
+===
+
+Some things to note in the repository:
+
+* https://github.com/aktau/github-release is needed to create a release
+* The makefile is generated with https://github.com/c9s/vim-makefile
+
+Creating a release
+===========
+You can run the following:
+
+```bash
+
+git tag -a <new-version> -m 'A comment describing the tag'
+git push --tags
+export V=<new-version>
+make vimball VERSION=$V
+export GITHUB_TOKEN=<your-token>
+github-release release --user nikolavp --repo vim-jape --tag v1.0 --name 'First release' --description 'General availability release for the vim-jape plugin' --file "vim-jape-${V}.vmb"
+```
+
