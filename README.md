@@ -29,7 +29,13 @@ Snippets
 If you are using the excellent [Ultisnips](https://github.com/SirVer/ultisnips) you will get the following snippets:
 
 * imports - creates an import block with a default static import for gate.Utils.\*
-
+* gram - creates a grammar file heading
+* rule - creates a rule *without* a java on the right hand side
+* jrule - creates a rule *with* java on the right hand side
+* lhsmacro - creates a macro
+* bra - creates a matching annotation expression
+* look - creates a matching lookup expression with filters
+* tok - creates a token matching expression with filters
 
 Ctags for jumping to definitions
 ========

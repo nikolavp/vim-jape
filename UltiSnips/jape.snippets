@@ -3,3 +3,61 @@ Imports: {
     import static gate.Utils.*;
 }
 endsnippet
+
+snippet gram "Create a grammar header" !b
+/**
+ * @author ${1:authorname}
+ */
+Phase: ${3:FirstPhase}
+Input: ${4:Token} ${5:Lookup}
+Options: control = ${6:appelt}, debug = ${7:false}
+
+${8}
+endsnippet
+
+snippet rule "Create a jape rule without java on RHS" !b
+Rule: ${1:ruleName}
+Priority: ${2:100}
+(
+   ({${3:Token}})[1,2]
+):${4:bind}
+-->
+:$4.${5:annotationName} = {rule = "$1"}
+endsnippet
+
+snippet jrule "Create a jape rule with java on RHS" !b
+Rule: ${1:First}
+Priority: ${2:100}
+(
+   ({${3:Lookup.majorType == "person_first"}})
+):${4:bind}
+-->
+{
+   AnnotationSet person = bindings.get("$4");
+   Annotation personAnn = person.iterator().next();
+   FeatureMap features = Factory.newFeatureMap();
+   features.put("gender", personAnn.getFeatures().get("minorType"));
+   features.put("rule", "$1");
+   outputAS.add(person.firstNode(), person.lastNode(), "${5:Person}", features);
+}
+endsnippet
+
+
+snippet lhsmacro "Create a left hand side macro" !b
+Macro: ${1:EXAMPLE}
+(
+   ({${2:Token}})
+)
+endsnippet
+
+snippet bra "Create a bracketed matcher" w
+({${1:Token}})
+endsnippet
+
+snippet look "Create a lookup annotation and filter for features" w
+{Lookup.${1:majorType} == "${2:city}"}
+endsnippet
+
+snippet tok "Add a token annotation with filter for features" w
+{Token.${1:category} == "${2:NNP}"}
+endsnippet
